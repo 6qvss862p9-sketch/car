@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DriveRent — Автокөлік арендасы</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <div class="logo">Drive<span>Rent</span></div>
+
+    <nav>
+        <a href="#home">Басты бет</a>
+        <a href="#cars">Машиналар</a>
+        <a href="#about">Біз туралы</a>
+        <a href="#contact">Байланыс</a>
+    </nav>
+
+    <button class="header-button" onclick="scrollToCars()">
+        Машина таңдау
+    </button>
+</header>
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+        <p class="small-title">PREMIUM CAR RENTAL</p>
+
+        <h1>
+            Қалаған көлігіңді
+            <span>жалға ал</span>
+        </h1>
+
+        <p class="hero-text">
+            Ыңғайлы, жылдам және қауіпсіз автокөлік арендасы.
+            Көлігіңді таңда да жолға шық!
+        </p>
+
+        <button class="main-button" onclick="scrollToCars()">
+            Көліктерді көру →
+        </button>
+    </div>
+
+</section>
+
+<section class="cars-section" id="cars">
+
+    <div class="section-title">
+        <p>БІЗДІҢ АВТОПАРК</p>
+        <h2>Көліктерді таңдаңыз</h2>
+    </div>
+
+    <div class="filters">
+
+        <button class="filter active" onclick="filterCars('all', this)">
+            Барлығы
+        </button>
+
+        <button class="filter" onclick="filterCars('economy', this)">
+            Эконом
+        </button>
+
+        <button class="filter" onclick="filterCars('comfort', this)">
+            Комфорт
+        </button>
+
+        <button class="filter" onclick="filterCars('business', this)">
+            Бизнес
+        </button>
+
+        <button class="filter" onclick="filterCars('suv', this)">
+            SUV
+        </button>
+
+    </div>
+
+    <div class="cars-grid" id="carsGrid"></div>
+
+</section>
+
+<section class="about" id="about">
+
+    <div class="about-content">
+
+        <p class="small-title">DRIVERENT</p>
+
+        <h2>Неге бізді таңдайды?</h2>
+
+        <p>
+            Біз әртүрлі класстағы заманауи автокөліктерді
+            қысқа және ұзақ мерзімге жалға береміз.
+        </p>
+
+        <div class="advantages">
+
+            <div>
+                <strong>15+</strong>
+                <span>Автокөлік</span>
+            </div>
+
+            <div>
+                <strong>24/7</strong>
+                <span>Қолдау</span>
+            </div>
+
+            <div>
+                <strong>5★</strong>
+                <span>Сервис</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="contact" id="contact">
+
+    <div>
+        <p class="small-title">БАЙЛАНЫС</p>
+        <h2>Бізбен байланысыңыз</h2>
+        <p>Телефон: +7 700 123 45 67</p>
+        <p>WhatsApp: +7 700 123 45 67</p>
+        <p>Алматы, Қазақстан</p>
+    </div>
+
+</section>
+
+<div class="modal" id="rentModal">
+
+    <div class="modal-content">
+
+        <button class="close" onclick="closeModal()">×</button>
+
+        <h2>Машинаны жалға алу</h2>
+
+        <div class="selected-car" id="selectedCar"></div>
+
+        <label>Аты-жөніңіз</label>
+        <input type="text" id="name" placeholder="Аты-жөніңіз">
+
+        <label>Телефон</label>
+        <input type="tel" id="phone" placeholder="+7 700 000 00 00">
+
+        <label>Басталу күні</label>
+        <input type="date" id="startDate">
+
+        <label>Аяқталу күні</label>
+        <input type="date" id="endDate">
+
+        <div class="price-box">
+            <span>Жалпы баға:</span>
+            <strong id="totalPrice">0 ₸</strong>
+        </div>
+
+        <button class="rent-button" onclick="submitRent()">
+            Арендаға тапсырыс беру
+        </button>
+
+    </div>
+
+</div>
+
+<footer>
+    <div class="logo">Drive<span>Rent</span></div>
+    <p>© 2026 DriveRent. Барлық құқықтар қорғалған.</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
