@@ -3,140 +3,193 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DriveRent — Автокөлік арендасы</title>
+    <title>DriveRent — Автокөлік арендасы Алматыда</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<header>
-    <div class="logo">Drive<span>Rent</span></div>
+<header class="header">
+    <a href="#home" class="logo">Drive<span>Rent</span></a>
 
-    <nav>
+    <nav class="nav" id="mainNav">
         <a href="#home">Басты бет</a>
-        <a href="#cars">Машиналар</a>
+        <a href="#cars">Автопарк</a>
+        <a href="#conditions">Шарттар</a>
+        <a href="#services">Қызметтер</a>
         <a href="#about">Біз туралы</a>
         <a href="#contact">Байланыс</a>
     </nav>
 
-    <button class="header-button" onclick="scrollToCars()">
-        Машина таңдау
-    </button>
+    <div class="header-actions">
+        <a class="phone" href="tel:+77001234567">+7 700 123 45 67</a>
+        <button class="header-button" onclick="scrollToCars()">Көлік таңдау</button>
+        <button class="menu-button" onclick="toggleMenu()" aria-label="Меню">☰</button>
+    </div>
 </header>
 
-<section class="hero" id="home">
+<main>
+    <section class="hero" id="home">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="eyebrow">PREMIUM CAR RENTAL • ALMATY</div>
+            <h1>Алматыда көлік<br><span>жалға алыңыз</span></h1>
+            <p>Қалаға, бизнеске немесе сапарға арналған сенімді автокөліктер. Көлігіңізді таңдап, бірнеше минутта өтінім қалдырыңыз.</p>
 
-    <div class="hero-content">
-        <p class="small-title">PREMIUM CAR RENTAL</p>
-
-        <h1>
-            Қалаған көлігіңді
-            <span>жалға ал</span>
-        </h1>
-
-        <p class="hero-text">
-            Ыңғайлы, жылдам және қауіпсіз автокөлік арендасы.
-            Көлігіңді таңда да жолға шық!
-        </p>
-
-        <button class="main-button" onclick="scrollToCars()">
-            Көліктерді көру →
-        </button>
-    </div>
-
-</section>
-
-<section class="cars-section" id="cars">
-
-    <div class="section-title">
-        <p>БІЗДІҢ АВТОПАРК</p>
-        <h2>Көліктерді таңдаңыз</h2>
-    </div>
-
-    <div class="filters">
-
-        <button class="filter active" onclick="filterCars('all', this)">
-            Барлығы
-        </button>
-
-        <button class="filter" onclick="filterCars('economy', this)">
-            Эконом
-        </button>
-
-        <button class="filter" onclick="filterCars('comfort', this)">
-            Комфорт
-        </button>
-
-        <button class="filter" onclick="filterCars('business', this)">
-            Бизнес
-        </button>
-
-        <button class="filter" onclick="filterCars('suv', this)">
-            SUV
-        </button>
-
-    </div>
-
-    <div class="cars-grid" id="carsGrid"></div>
-
-</section>
-
-<section class="about" id="about">
-
-    <div class="about-content">
-
-        <p class="small-title">DRIVERENT</p>
-
-        <h2>Неге бізді таңдайды?</h2>
-
-        <p>
-            Біз әртүрлі класстағы заманауи автокөліктерді
-            қысқа және ұзақ мерзімге жалға береміз.
-        </p>
-
-        <div class="advantages">
-
-            <div>
-                <strong>15+</strong>
-                <span>Автокөлік</span>
+            <div class="hero-buttons">
+                <button class="main-button" onclick="scrollToCars()">Автопаркті көру <span>→</span></button>
+                <a class="ghost-button" href="tel:+77001234567">Бізге қоңырау шалу</a>
             </div>
-
-            <div>
-                <strong>24/7</strong>
-                <span>Қолдау</span>
-            </div>
-
-            <div>
-                <strong>5★</strong>
-                <span>Сервис</span>
-            </div>
-
         </div>
 
-    </div>
+        <div class="hero-booking">
+            <div class="booking-title">
+                <span>01</span>
+                <div>
+                    <strong>Көлік таңдаңыз</strong>
+                    <small>15+ автомобиль қолжетімді</small>
+                </div>
+            </div>
+            <button onclick="scrollToCars()">Автопаркке өту →</button>
+        </div>
+    </section>
 
-</section>
+    <section class="trust">
+        <div><strong>15+</strong><span>Автокөлік</span></div>
+        <div><strong>24/7</strong><span>Қолдау</span></div>
+        <div><strong>5★</strong><span>Сервис</span></div>
+        <div><strong>100%</strong><span>Ашық баға</span></div>
+    </section>
 
-<section class="contact" id="contact">
+    <section class="cars-section" id="cars">
+        <div class="section-heading">
+            <div>
+                <p class="section-label">БІЗДІҢ АВТОПАРК</p>
+                <h2>Өзіңізге лайық көлікті таңдаңыз</h2>
+            </div>
+            <p class="section-description">Экономнан премиум класқа дейін. Баға тәулігіне көрсетілген.</p>
+        </div>
 
-    <div>
-        <p class="small-title">БАЙЛАНЫС</p>
-        <h2>Бізбен байланысыңыз</h2>
-        <p>Телефон: +7 700 123 45 67</p>
-        <p>WhatsApp: +7 700 123 45 67</p>
-        <p>Алматы, Қазақстан</p>
-    </div>
+        <div class="filters">
+            <button class="filter active" onclick="filterCars('all', this)">Барлығы</button>
+            <button class="filter" onclick="filterCars('economy', this)">Эконом</button>
+            <button class="filter" onclick="filterCars('comfort', this)">Комфорт</button>
+            <button class="filter" onclick="filterCars('business', this)">Бизнес</button>
+            <button class="filter" onclick="filterCars('suv', this)">SUV</button>
+        </div>
 
-</section>
+        <div class="cars-grid" id="carsGrid"></div>
+    </section>
+
+    <section class="conditions" id="conditions">
+        <div class="section-heading center">
+            <p class="section-label">АРЕНДА ШАРТТАРЫ</p>
+            <h2>Барлығы қарапайым</h2>
+            <p class="section-description">Көлікті рәсімдеу процесін мүмкіндігінше ыңғайлы еттік.</p>
+        </div>
+
+        <div class="steps">
+            <article class="step">
+                <span>01</span>
+                <h3>Көлікті таңдаңыз</h3>
+                <p>Автопарктен өзіңізге қажетті класс пен көлікті таңдаңыз.</p>
+            </article>
+            <article class="step">
+                <span>02</span>
+                <h3>Күндерді көрсетіңіз</h3>
+                <p>Аренданың басталу және аяқталу күнін енгізіңіз.</p>
+            </article>
+            <article class="step">
+                <span>03</span>
+                <h3>Өтінім қалдырыңыз</h3>
+                <p>Атыңыз бен телефон нөміріңізді қалдырыңыз. Біз сізбен байланысамыз.</p>
+            </article>
+            <article class="step">
+                <span>04</span>
+                <h3>Жолға шығыңыз</h3>
+                <p>Өтінім расталғаннан кейін көлікті алып, сапарыңызды бастаңыз.</p>
+            </article>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <div class="section-heading">
+            <div>
+                <p class="section-label">ҚЫЗМЕТТЕР</p>
+                <h2>Сіз үшін көбірек мүмкіндік</h2>
+            </div>
+        </div>
+
+        <div class="service-grid">
+            <article class="service-card">
+                <div class="service-number">01</div>
+                <h3>Қысқа мерзімді аренда</h3>
+                <p>Күнделікті істер мен қала ішіндегі қозғалысқа ыңғайлы.</p>
+            </article>
+            <article class="service-card">
+                <div class="service-number">02</div>
+                <h3>Ұзақ мерзімді аренда</h3>
+                <p>Бірнеше күннен бастап ұзақ мерзімге тиімді шешім.</p>
+            </article>
+            <article class="service-card">
+                <div class="service-number">03</div>
+                <h3>Бизнес класс</h3>
+                <p>Кездесулер, іс-шаралар және ерекше жағдайларға арналған.</p>
+            </article>
+            <article class="service-card">
+                <div class="service-number">04</div>
+                <h3>SUV автокөліктер</h3>
+                <p>Қала сыртындағы сапарлар мен отбасылық саяхаттарға.</p>
+            </article>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="about-image">
+            <img src="https://images.unsplash.com/photo-1504215680853-026ed2a45def?auto=format&fit=crop&w=1200&q=85" alt="DriveRent">
+        </div>
+        <div class="about-content">
+            <p class="section-label">DRIVERENT</p>
+            <h2>Жолдағы сенімді серіктесіңіз</h2>
+            <p>Біз Алматыдағы әртүрлі класстағы заманауи автокөліктерді қысқа және ұзақ мерзімге ұсынамыз. Біздің мақсатымыз — көлік жалдау процесін жылдам, түсінікті және ыңғайлы ету.</p>
+            <div class="about-list">
+                <div><span>✓</span> Заманауи автопарк</div>
+                <div><span>✓</span> Ашық әрі түсінікті баға</div>
+                <div><span>✓</span> 24/7 клиенттерді қолдау</div>
+                <div><span>✓</span> Жылдам өтінім рәсімдеу</div>
+            </div>
+            <button class="dark-button" onclick="scrollToCars()">Көлікті таңдау →</button>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="contact-box">
+            <div>
+                <p class="section-label">БАЙЛАНЫС</p>
+                <h2>Көлік қажет пе?</h2>
+                <p>Бізге хабарласыңыз. Қажетті көлікті таңдауға көмектесеміз.</p>
+            </div>
+            <div class="contact-actions">
+                <a href="tel:+77001234567">+7 700 123 45 67</a>
+                <a href="https://wa.me/77001234567" target="_blank">WhatsApp →</a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <a href="#home" class="logo">Drive<span>Rent</span></a>
+    <p>© 2026 DriveRent. Алматы, Қазақстан.</p>
+    <a href="tel:+77001234567">+7 700 123 45 67</a>
+</footer>
 
 <div class="modal" id="rentModal">
-
     <div class="modal-content">
-
         <button class="close" onclick="closeModal()">×</button>
-
-        <h2>Машинаны жалға алу</h2>
-
+        <p class="section-label">АРЕНДА</p>
+        <h2>Көлікті жалға алу</h2>
         <div class="selected-car" id="selectedCar"></div>
 
         <label>Аты-жөніңіз</label>
@@ -145,31 +198,26 @@
         <label>Телефон</label>
         <input type="tel" id="phone" placeholder="+7 700 000 00 00">
 
-        <label>Басталу күні</label>
-        <input type="date" id="startDate">
-
-        <label>Аяқталу күні</label>
-        <input type="date" id="endDate">
+        <div class="date-grid">
+            <div>
+                <label>Басталу күні</label>
+                <input type="date" id="startDate">
+            </div>
+            <div>
+                <label>Аяқталу күні</label>
+                <input type="date" id="endDate">
+            </div>
+        </div>
 
         <div class="price-box">
-            <span>Жалпы баға:</span>
+            <span>Жалпы баға</span>
             <strong id="totalPrice">0 ₸</strong>
         </div>
 
-        <button class="rent-button" onclick="submitRent()">
-            Арендаға тапсырыс беру
-        </button>
-
+        <button class="rent-button" onclick="submitRent()">Арендаға тапсырыс беру →</button>
     </div>
-
 </div>
 
-<footer>
-    <div class="logo">Drive<span>Rent</span></div>
-    <p>© 2026 DriveRent. Барлық құқықтар қорғалған.</p>
-</footer>
-
 <script src="script.js"></script>
-
 </body>
 </html>

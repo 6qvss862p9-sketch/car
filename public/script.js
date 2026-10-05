@@ -125,80 +125,61 @@ let selectedCar = null;
 
 function displayCars(list = cars) {
     const grid = document.getElementById("carsGrid");
-
     grid.innerHTML = "";
 
     list.forEach(car => {
         grid.innerHTML += `
-            <div class="car-card">
-                <img class="car-image" src="${car.image}" alt="${car.name}">
-
+            <article class="car-card">
+                <img class="car-image" src="${car.image}" alt="${car.name}" loading="lazy">
                 <div class="car-info">
-
                     <h3>${car.name}</h3>
-
                     <p class="car-type">${car.typeName}</p>
-
                     <div class="car-bottom">
-
                         <div class="price">
                             ${car.price.toLocaleString("ru-RU")} ₸
                             <span>/ күн</span>
                         </div>
-
-                        <button
-                            class="rent-small"
-                            onclick="openModal(${car.id})">
-                            Аренда
+                        <button class="rent-small" onclick="openModal(${car.id})">
+                            Аренда →
                         </button>
-
                     </div>
-
                 </div>
-            </div>
+            </article>
         `;
     });
 }
 
 function filterCars(type, button) {
-
-    document.querySelectorAll(".filter").forEach(btn => {
-        btn.classList.remove("active");
-    });
-
+    document.querySelectorAll(".filter").forEach(btn => btn.classList.remove("active"));
     button.classList.add("active");
 
     if (type === "all") {
         displayCars(cars);
     } else {
-        const filtered = cars.filter(car => car.type === type);
-        displayCars(filtered);
+        displayCars(cars.filter(car => car.type === type));
     }
 }
 
 function openModal(carId) {
-
     selectedCar = cars.find(car => car.id === carId);
 
     document.getElementById("selectedCar").innerHTML = `
-        ${selectedCar.name} — 
-        ${selectedCar.price.toLocaleString("ru-RU")} ₸ / күн
+        ${selectedCar.name} — ${selectedCar.price.toLocaleString("ru-RU")} ₸ / күн
     `;
 
     document.getElementById("rentModal").classList.add("show");
-
     document.getElementById("startDate").value = "";
     document.getElementById("endDate").value = "";
-
     document.getElementById("totalPrice").textContent = "0 ₸";
+    document.body.style.overflow = "hidden";
 }
 
 function closeModal() {
     document.getElementById("rentModal").classList.remove("show");
+    document.body.style.overflow = "";
 }
 
 function calculatePrice() {
-
     if (!selectedCar) return;
 
     const start = document.getElementById("startDate").value;
@@ -211,12 +192,8 @@ function calculatePrice() {
 
     const startDate = new Date(start);
     const endDate = new Date(end);
-
     const difference = endDate - startDate;
-
-    const days = Math.ceil(
-        difference / (1000 * 60 * 60 * 24)
-    );
+    const days = Math.ceil(difference / (1000 * 60 * 60 * 24));
 
     if (days <= 0) {
         document.getElementById("totalPrice").textContent = "Қате күн";
@@ -224,23 +201,13 @@ function calculatePrice() {
     }
 
     const total = days * selectedCar.price;
-
-    document.getElementById("totalPrice").textContent =
-        total.toLocaleString("ru-RU") + " ₸";
+    document.getElementById("totalPrice").textContent = total.toLocaleString("ru-RU") + " ₸";
 }
 
-document.getElementById("startDate").addEventListener(
-    "change",
-    calculatePrice
-);
-
-document.getElementById("endDate").addEventListener(
-    "change",
-    calculatePrice
-);
+document.getElementById("startDate").addEventListener("change", calculatePrice);
+document.getElementById("endDate").addEventListener("change", calculatePrice);
 
 async function submitRent() {
-
     const name = document.getElementById("name").value.trim();
     const phone = document.getElementById("phone").value.trim();
     const startDate = document.getElementById("startDate").value;
@@ -253,10 +220,7 @@ async function submitRent() {
 
     const start = new Date(startDate);
     const end = new Date(endDate);
-
-    const days = Math.ceil(
-        (end - start) / (1000 * 60 * 60 * 24)
-    );
+    const days = Math.ceil((end - start) / (1000 * 60 * 60 * 24));
 
     if (days <= 0) {
         alert("Аяқталу күні дұрыс емес!");
@@ -266,7 +230,6 @@ async function submitRent() {
     const total = days * selectedCar.price;
 
     try {
-
         const response = await fetch("/api/rent", {
             method: "POST",
             headers: {
@@ -285,25 +248,18 @@ async function submitRent() {
         const result = await response.json();
 
         if (result.success) {
-
             alert(
                 "Тапсырысыңыз қабылданды!\n\n" +
                 "Көлік: " + selectedCar.name + "\n" +
-                "Жалпы баға: " +
-                total.toLocaleString("ru-RU") +
-                " ₸"
+                "Жалпы баға: " + total.toLocaleString("ru-RU") + " ₸"
             );
 
             closeModal();
-
             document.getElementById("name").value = "";
             document.getElementById("phone").value = "";
         }
-
     } catch (error) {
-
         alert("Сервермен байланыс жоқ!");
-
     }
 }
 
@@ -311,16 +267,27 @@ function scrollToCars() {
     document.getElementById("cars").scrollIntoView({
         behavior: "smooth"
     });
+
+    const nav = document.getElementById("mainNav");
+    if (nav) nav.classList.remove("open");
 }
 
-window.onclick = function(event) {
+function toggleMenu() {
+    document.getElementById("mainNav").classList.toggle("open");
+}
 
+window.addEventListener("click", function(event) {
     const modal = document.getElementById("rentModal");
 
     if (event.target === modal) {
         closeModal();
     }
+});
 
-};
+document.querySelectorAll(".nav a").forEach(link => {
+    link.addEventListener("click", () => {
+        document.getElementById("mainNav").classList.remove("open");
+    });
+});
 
 displayCars();
