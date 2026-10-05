@@ -86,7 +86,6 @@ a {
     white-space: nowrap;
 }
 
-.header-button,
 .main-button,
 .dark-button,
 .rent-button {
@@ -96,15 +95,6 @@ a {
     transition: .25s;
 }
 
-.header-button {
-    background: #111;
-    color: #fff;
-    padding: 12px 19px;
-    border-radius: 2px;
-    font-size: 12px;
-}
-
-.header-button:hover,
 .dark-button:hover {
     background: #e63922;
 }
@@ -207,56 +197,6 @@ a {
 .ghost-button:hover {
     background: #fff;
     color: #111;
-}
-
-.hero-booking {
-    position: absolute;
-    z-index: 3;
-    right: 7%;
-    bottom: 55px;
-    width: 390px;
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 15px;
-    background: #fff;
-    box-shadow: 0 15px 50px rgba(0,0,0,.22);
-}
-
-.booking-title {
-    display: flex;
-    align-items: center;
-    gap: 13px;
-}
-
-.booking-title > span {
-    font-size: 12px;
-    font-weight: 800;
-    color: #e63922;
-}
-
-.booking-title strong,
-.booking-title small {
-    display: block;
-}
-
-.booking-title strong {
-    font-size: 13px;
-}
-
-.booking-title small {
-    color: #777;
-    font-size: 11px;
-    margin-top: 3px;
-}
-
-.hero-booking button {
-    border: 0;
-    background: transparent;
-    font-weight: 800;
-    font-size: 12px;
-    cursor: pointer;
 }
 
 .trust {
@@ -798,10 +738,6 @@ footer > a:last-child {
         display: block;
     }
 
-    .header-button {
-        display: none;
-    }
-
     .hero {
         min-height: 690px;
         padding: 70px 7%;
@@ -810,13 +746,6 @@ footer > a:last-child {
 
     .hero h1 {
         letter-spacing: -2.5px;
-    }
-
-    .hero-booking {
-        left: 7%;
-        right: 7%;
-        bottom: 30px;
-        width: auto;
     }
 
     .trust {
@@ -883,11 +812,6 @@ footer > a:last-child {
 
     .hero h1 {
         font-size: 46px;
-    }
-
-    .hero-booking {
-        left: 5%;
-        right: 5%;
     }
 
     .cars-grid {
