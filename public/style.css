@@ -852,3 +852,197 @@ footer > a:last-child {
         padding: 30px 22px;
     }
 }
+
+/* ===== Rent page ===== */
+a.rent-small {
+    display: inline-block;
+    text-align: center;
+}
+
+.rent-page {
+    padding: 50px 7% 100px;
+    min-height: 70vh;
+    background: #f5f5f3;
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 28px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #777;
+    transition: .2s;
+}
+
+.back-link:hover {
+    color: #e63922;
+}
+
+.rent-layout {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 30px;
+    align-items: start;
+}
+
+.rent-layout[hidden],
+.rent-success[hidden],
+.rent-error[hidden] {
+    display: none;
+}
+
+.rent-car {
+    background: #fff;
+    border: 1px solid #eee;
+    overflow: hidden;
+}
+
+.rent-car img {
+    width: 100%;
+    height: 420px;
+    display: block;
+    object-fit: cover;
+    background: #eee;
+}
+
+.rent-car-info {
+    padding: 28px;
+}
+
+.rent-car-info h1 {
+    font-size: 36px;
+    letter-spacing: -1.5px;
+    margin: 4px 0 14px;
+}
+
+.rent-car-info .price {
+    font-size: 24px;
+}
+
+.rent-form,
+.rent-success,
+.rent-error {
+    background: #fff;
+    padding: 38px;
+    border: 1px solid #eee;
+}
+
+.rent-form h2 {
+    font-size: 31px;
+    margin: 7px 0 20px;
+}
+
+.rent-form label {
+    display: block;
+    margin: 14px 0 7px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.rent-form input {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #ddd;
+    outline: 0;
+    border-radius: 2px;
+    background: #fff;
+    font-size: 14px;
+}
+
+.rent-form input:focus {
+    border-color: #111;
+}
+
+.rent-success,
+.rent-error {
+    max-width: 620px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.rent-success h2,
+.rent-error h2 {
+    font-size: 30px;
+    letter-spacing: -1px;
+    margin-bottom: 10px;
+}
+
+.rent-success > p,
+.rent-error > p {
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 24px;
+}
+
+.success-mark {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #e63922;
+    color: #fff;
+    font-size: 28px;
+    font-weight: 800;
+}
+
+.success-info {
+    margin-bottom: 28px;
+    text-align: left;
+    background: #f5f5f3;
+    border-left: 3px solid #e63922;
+}
+
+.success-info div {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 14px 16px;
+    font-size: 14px;
+}
+
+.success-info div + div {
+    border-top: 1px solid #e7e7e7;
+}
+
+.success-info span {
+    color: #777;
+}
+
+.rent-error .dark-button,
+.rent-success .dark-button {
+    display: inline-block;
+}
+
+@media (max-width: 900px) {
+    .rent-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .rent-car img {
+        height: 300px;
+    }
+}
+
+@media (max-width: 600px) {
+    .rent-page {
+        padding: 35px 5% 70px;
+    }
+
+    .rent-form,
+    .rent-success,
+    .rent-error {
+        padding: 28px 22px;
+    }
+
+    .rent-car-info h1 {
+        font-size: 28px;
+    }
+
+    .success-info div {
+        flex-direction: column;
+        gap: 2px;
+    }
+}
